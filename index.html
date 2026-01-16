@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Platform</title>
+    <meta name="og:description" content="Welcome To Infinity platform">
+    <meta name="og:title" content="♾️ platform">
+    <meta name="author" content="♾️ TEAM">
+    <meta name="description" content="♾️">
+    <meta name="description" content="♾️ , infinity Platform, AWeb Platform Maker , Platform , infinity , ♾️ platform , ♾️ PLATFORM">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="ico.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <h1>Infinity Platform</h1>
+    </header>
+    <form id="orderForm">
+        <input required type="text" id="name" placeholder="الاسم هنا" class="box"><br>
+        <input required type="text" id="location" placeholder="العنوان هنا" class="box"><br>
+        <input required type="text" id="tel" placeholder="رقمك بالدليل الدولي بدون +" class="box"><br>
+        <input required type="checkbox" id="respovsive"><br>
+        <label required for="respovsive" class="lable-1">الصفحه متجاوبه علي حميع الاحهزة</label><br><br>
+        <input required type="text" id="lang" placeholder="اللغات المستخدمه في الصفحة (عربي - ألخ)" class="box"><br>
+        <input required type="checkbox" id="ui"><br>
+        <label required for="ui" class="label-2">الصفحة واجهة فقط</label><br><br>
+        <input required type="text" id="day" placeholder="مده العمل من (1 - 30) يوم" class="box"><br>
+        <span>نوع الصفحة</span><br>
+        <select required id="pageType" class="box">
+            <option value="شركات">شركات</option>
+            <option value="بيزنس">بيزنس</option>
+            <option value="اعمال">اعمال</option>
+            <option value="شخصي">شخصي</option>
+            <option value="مقالات">مقالات</option>
+            <option value="اخبار">اخبار</option>
+            <option value="تسجيل دخول وخروج">تسجيل دخول وخروج</option>
+            <option value="منصات تعليميه">منصات تعليميه</option>
+            <option value="منصات اسلاميه">منصات اسلاميه</option>
+            <option value="تجاريه">تجاريه</option>
+            <option value="التدوين الالكتروني">التدوين الالكتروني</option>
+        </select><br><br>
+        <input type="text" id="price" placeholder="السعر" class="box" disabled><br><br><br>
+        <input type="submit" value="أرسال عبر الواتساب" class="box submit">
+    </form>
+
+    <script>
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+        e.preventDefault(); 
+
+        // 1. جلب البيانات
+        const name = document.getElementById('name').value;
+        const location = document.getElementById('location').value;
+        const tel = document.getElementById('tel').value;
+        const lang = document.getElementById('lang').value;
+        const day = document.getElementById('day').value;
+        const pageType = document.getElementById('pageType').value;
+        const isResponsive = document.getElementById('respovsive').checked ? "نعم" : "لا";
+        const isUIOnly = document.getElementById('ui').checked ? "نعم" : "لا";
+
+        // 2. رقمك الشخصي (مثال لمصر: 201012345678)
+        // تأكد تماماً من كتابة كود الدولة ثم الرقم مباشرة بدون + أو 00
+        const myWhatsAppNumber = "201027680112"; 
+
+        // 3. تجهيز الرسالة
+        let message = "طلب جديد من Infinity Platform:\n";
+        message += "الاسم: " + name + "\n";
+        message += "العنوان: " + location + "\n";
+        message += "نوع الصفحة: " + pageType;
+
+        // 4. الرابط بصيغة API (أكثر استقراراً)
+        const whatsappUrl = "https://api.whatsapp.com/send?phone=" + myWhatsAppNumber + "&text=" + encodeURIComponent(message);
+        
+        // فتح الرابط
+        window.open(whatsappUrl, '_blank');
+    });
+</script>
+</body>
+</html>

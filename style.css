@@ -1,0 +1,102 @@
+:root{
+    --bg-color:#1f1f1f;
+    --color:#fff;
+    --font-size:24px/18px;
+    --font-family:sans-serif;
+}
+html{
+    color: var(--color);
+    background-color: var(--bg-color);
+    font-size: var(--font-size);
+    font-family: var(--font-family);
+}
+a{
+    text-decoration: none;
+    color: black;
+    font-family: var(--font-family);
+    transition: all .5s ease .25s;
+}
+header{
+    width: 95%;
+    padding: 0px 15px;
+    display: flex;
+    background-color: #363637;
+    margin: auto;
+    text-align: center;
+    border-radius: 2rem;
+}
+input.box{
+    background-color: #fff;
+    color: black;
+    padding: 3px 20px;
+    padding-left: 10px;
+    border: none;
+    position: relative;
+    border-bottom: 5px solid black;
+}
+input.box:focus{
+    border-bottom: 5px solid black;
+    animation: bg-color .5s linear 2 .2s;
+}
+input.box::placeholder{
+    position: absolute;
+    left: 4.5%;
+    color: black;
+    top: 20%;
+    transition: all .5s ease ,top .05s ease-out;
+}
+input.box:placeholder-shown{
+    visibility: visible;
+    display: inline-block;
+}
+input.box:focus::placeholder{
+    visibility: visible;
+    top: -5%;
+}
+form{
+    position: relative;
+    margin-left: 0%;
+    margin-top: 10%;
+    text-align: center;
+}
+input ,.box{
+    width: 175px;
+    text-align: center;
+    direction: rtl;
+}
+input.box::placeholder{
+    right: 0;
+}
+input.discbox{
+    width: 300px;
+    height: 100px;
+    animation:pused;
+}
+select.box{
+    width: 210px;
+    padding: 5px 0px;
+}
+select option{
+    background-color: black;
+    color: white;
+}
+input.submit{
+    background-color: #e4dfdf;
+    border-radius: 2rem;
+    box-shadow: 0px 0px 0px white;
+    border: none;
+    transition: all .5s ease;
+}
+input.submit:hover{
+    box-shadow: 0px 5px 5px white;
+    translate: 0 -10px;
+    cursor: pointer;
+}
+#ui , #respovsive{
+    display: none;
+}
+.label-2 , .lable-1{
+    cursor: pointer;
+}
+#respovsive:checked ~ .lable-1{color: red;}
+#ui:checked ~ .label-2{color:red;}
